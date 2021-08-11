@@ -10,7 +10,7 @@ class VegetableWidget extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 250,
-            childAspectRatio: 2.5,
+            childAspectRatio: 1.5,
             mainAxisExtent: 160,
             mainAxisSpacing: 3),
         itemCount: 10,
