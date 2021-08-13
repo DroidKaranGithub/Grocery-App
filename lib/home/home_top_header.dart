@@ -21,6 +21,7 @@ class HomeTopHeader extends StatelessWidget {
             ),
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Stack(
                 children: [
@@ -87,7 +88,8 @@ class HomeTopHeader extends StatelessWidget {
                 ],
               ),
               Container(
-                margin: EdgeInsets.only(top: 10, left: 16, right: 16),
+                margin:
+                    EdgeInsets.only(top: 10, left: 16, right: 16, bottom: 10),
                 child: TextField(
                   style: TextStyle(fontFamily: 'OpenSans'),
                   textAlignVertical: TextAlignVertical.center,
