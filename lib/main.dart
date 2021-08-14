@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/home/frute_list.dart';
 import 'package:grocery_app/home/vegetable_list.dart';
 import 'package:grocery_app/login/login.dart';
+import 'package:grocery_app/signup/signup.dart';
 import './home/home_top_header.dart';
 
 void main() => runApp(MyApp());
@@ -13,7 +14,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Grocery App',
-      theme: ThemeData(primarySwatch: Colors.green),
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      routes: {
+        'login': (context) => Login(),
+        'signup': (context) => SignUp(),
+        'homepage': (context) => HomePage(),
+      },
       home: Login(),
     );
   }

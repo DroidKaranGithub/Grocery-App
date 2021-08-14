@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomePageRoute extends PageRouteBuilder {
+class CustomePageRoute extends PageRouteBuilder<MaterialPageRoute> {
   final Widget child;
 
   CustomePageRoute({required this.child})

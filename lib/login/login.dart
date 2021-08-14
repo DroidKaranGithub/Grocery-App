@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:grocery_app/animation/customroute.dart';
-import 'package:grocery_app/main.dart';
-import 'package:grocery_app/signup/signup.dart';
+// import 'package:grocery_app/animation/customroute.dart';
+// import 'package:grocery_app/main.dart';
+// import 'package:grocery_app/signup/signup.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -97,7 +97,8 @@ class _LoginState extends State<Login> {
                 // Navigator.of(context).push(_createRoute());
                 // Navigator.of(context)
                 //     .push(MaterialPageRoute(builder: (context) => HomePage()));
-                Navigator.of(context).push(CustomePageRoute(child: HomePage()));
+                // Navigator.of(context).push(CustomePageRoute(child: HomePage()));
+                Navigator.of(context).pushNamed('homepage');
               },
               child: Padding(
                 padding: const EdgeInsets.only(
@@ -130,8 +131,9 @@ class _LoginState extends State<Login> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context)
-                        .push(CustomePageRoute(child: SignUp()));
+                    // Navigator.of(context)
+                    //     .push(CustomePageRoute(child: SignUp()));
+                    Navigator.of(context).pushNamed('signup');
                   },
                   child: Text(
                     'SignUp',
@@ -150,23 +152,4 @@ class _LoginState extends State<Login> {
       ),
     );
   }
-}
-
-Route _createRoute() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const HomePage(),
-    // transitionsBuilder: (context, animation, secondaryAnimation, child) {
-    //   return child;
-    // },
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      const begin = Offset(0.0, 1.0);
-      const end = Offset.zero;
-      final tween = Tween(begin: begin, end: end);
-      final offsetAnimation = animation.drive(tween);
-      return SlideTransition(
-        position: offsetAnimation,
-        child: child,
-      );
-    },
-  );
 }

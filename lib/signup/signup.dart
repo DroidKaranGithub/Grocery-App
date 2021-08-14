@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/animation/customroute.dart';
-import 'package:grocery_app/main.dart';
+// import 'package:grocery_app/animation/customroute.dart';
+// import 'package:grocery_app/main.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -132,8 +132,9 @@ class _SignUpState extends State<SignUp> {
                   // Navigator.of(context).push(_createRoute());
                   // Navigator.of(context)
                   //     .push(MaterialPageRoute(builder: (context) => HomePage()));
-                  Navigator.of(context)
-                      .push(CustomePageRoute(child: HomePage()));
+                  // Navigator.of(context)
+                  //     .push(CustomePageRoute(child: HomePage()));
+                  Navigator.of(context).pushNamed('homepage');
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(
