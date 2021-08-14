@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:grocery_app/animation/customroute.dart';
 import 'package:grocery_app/main.dart';
+import 'package:grocery_app/signup/signup.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -91,9 +94,10 @@ class _LoginState extends State<Login> {
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).push(_createRoute());
+                // Navigator.of(context).push(_createRoute());
                 // Navigator.of(context)
                 //     .push(MaterialPageRoute(builder: (context) => HomePage()));
+                Navigator.of(context).push(CustomePageRoute(child: HomePage()));
               },
               child: Padding(
                 padding: const EdgeInsets.only(
@@ -109,6 +113,37 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Don't have an account?",
+                  style: TextStyle(
+                    fontFamily: 'OpenSans',
+                    fontWeight: FontWeight.normal,
+                    fontSize: 13,
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(CustomePageRoute(child: SignUp()));
+                  },
+                  child: Text(
+                    'SignUp',
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontFamily: 'OpenSans',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 13,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
