@@ -39,7 +39,7 @@ class HomeTopHeader extends StatelessWidget {
                   Align(
                     alignment: Alignment.center,
                     child: Container(
-                      margin: EdgeInsets.only(top: 15),
+                      margin: EdgeInsets.only(top: 20),
                       height: 80,
                       width: 80,
                       child: Icon(Icons.shopping_cart_outlined),
@@ -94,6 +94,8 @@ class HomeTopHeader extends StatelessWidget {
                   style: TextStyle(fontFamily: 'OpenSans'),
                   textAlignVertical: TextAlignVertical.center,
                   decoration: InputDecoration(
+                      contentPadding:
+                          const EdgeInsets.symmetric(vertical: 10.0),
                       filled: true,
                       fillColor: Colors.white,
                       hintText: 'Search giants grocery stores',

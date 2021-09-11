@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "data": {
+        "name": "New1",
+        "email": "new1@gmail.com"
+    },
+    "message": "User register successfully.",
+    "token": "0|HT8tVzLmOzhRPEV42lVKC1Gyl05oFblPP5C7hwrh"
+}

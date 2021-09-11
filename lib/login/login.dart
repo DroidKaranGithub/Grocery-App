@@ -12,6 +12,13 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  bool isEmaileEmpty = false;
+  bool isPasswordEmpty = false;
+  // bool _isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,18 +34,18 @@ class _LoginState extends State<Login> {
                 fillColor: Colors.white,
                 filled: true,
                 contentPadding: const EdgeInsets.symmetric(vertical: 12.0),
-                hintText: 'Enter mobile number',
+                hintText: 'Enter Email number',
                 hintStyle: TextStyle(
                   fontSize: 14,
                   fontFamily: 'OpenSans',
                   fontWeight: FontWeight.normal,
                 ),
-                labelText: 'Mobile',
+                // labelText: 'Email',
                 labelStyle: TextStyle(
                   fontFamily: 'OpenSans',
                   fontWeight: FontWeight.normal,
                 ),
-                prefixIcon: Icon(Icons.phone_android_rounded),
+                prefixIcon: Icon(Icons.email_outlined),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(15),
@@ -64,7 +71,7 @@ class _LoginState extends State<Login> {
                   fontFamily: 'OpenSans',
                   fontWeight: FontWeight.normal,
                 ),
-                labelText: 'Password',
+                // labelText: 'Password',
                 labelStyle: TextStyle(
                   fontFamily: 'OpenSans',
                   fontWeight: FontWeight.normal,
