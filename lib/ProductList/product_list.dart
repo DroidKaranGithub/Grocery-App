@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/models/models/test_list.dart';
+import 'package:grocery_app/models/models/category_product_list.dart';
 
-class VegetableWidget extends StatelessWidget {
-  final List<Data> data;
-  VegetableWidget({required this.data});
+class ProductList extends StatelessWidget {
+  final List<CategoryList> categories;
+
+  ProductList({required this.categories});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 180,
-      child: ListView.builder(
-        padding: EdgeInsets.only(left: 16),
-        scrollDirection: Axis.horizontal,
+      child: GridView.builder(
+        padding: EdgeInsets.only(left: 12.0, right: 12.0),
+        shrinkWrap: true,
+        physics: ScrollPhysics(),
+        gridDelegate:
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (ctx, index) {
           return Container(
-            width: 150,
             child: Card(
               elevation: 3.0,
               shape: RoundedRectangleBorder(
@@ -26,12 +28,12 @@ class VegetableWidget extends StatelessWidget {
                     flex: 4,
                     child: Container(
                       margin:
-                          EdgeInsets.only(top: 15.0, left: 16.0, right: 16.0),
+                          EdgeInsets.only(top: 20.0, left: 16.0, right: 16.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(12.0),
                         child: Image.network(
-                          data[index].image_url.toString(),
-                          fit: BoxFit.cover,
+                          categories[index].image_url.toString(),
+                          fit: BoxFit.fill,
                         ),
                       ),
                     ),
@@ -40,7 +42,7 @@ class VegetableWidget extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         vertical: 5.0, horizontal: 16.0),
                     child: Text(
-                      data[index].name.toString(),
+                      categories[index].name.toString(),
                       style: TextStyle(
                         fontFamily: 'OpenSans',
                         fontSize: 16,
@@ -53,7 +55,7 @@ class VegetableWidget extends StatelessWidget {
             ),
           );
         },
-        itemCount: data.length,
+        itemCount: categories.length,
       ),
     );
   }

@@ -23,6 +23,7 @@ class _SignUpState extends State<SignUp> {
   bool isPasswordEmpty = false;
   bool isConfirmPasswordEmpty = false;
   bool _isLoading = false;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void isValid(BuildContext context) {
     setState(() {
@@ -85,34 +86,37 @@ class _SignUpState extends State<SignUp> {
     // SignUpResponse response = SignUpResponse();
     SignUpResponseBean signUpResponseBean =
         SignUpResponseBean.fromJson(resData);
-
-    print(signUpResponseBean);
+    // _showToast(context, signUpResponseBean);1
+    print("SignUp success 200");
+    print(signUpResponseBean.message);
     if (signUpresponse.statusCode == 200) {
+      print("SignUp success");
       if (signUpResponseBean.success == true) {
         setState(() {
           _isLoading = false;
+          Navigator.of(context).pushReplacementNamed("homepage");
         });
-        Navigator.of(context).pop();
       } else if (signUpResponseBean.success == false) {
         setState(() {
           _isLoading = false;
         });
-        _showToast(context, signUpResponseBean);
+        this._showToast(context, signUpResponseBean);
         print(signUpResponseBean);
       }
     } else {
       setState(() {
         _isLoading = false;
       });
-      _showToast(context, signUpResponseBean);
+      this._showToast(context, signUpResponseBean);
     }
   }
 
   void _showToast(BuildContext context, SignUpResponseBean response) {
-    final scaffold = Scaffold.of(context);
-    scaffold.showSnackBar(
-      SnackBar(
-        content: Text(response.message.toString()),
+    _scaffoldKey.currentState!.showSnackBar(
+      new SnackBar(
+        content: Text(
+          response.message.toString(),
+        ),
       ),
     );
   }
@@ -120,6 +124,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Colors.green[100],
       body: Stack(
         children: [
@@ -316,8 +321,6 @@ class _SignUpState extends State<SignUp> {
                       ),
                       TextButton(
                         onPressed: () {
-                          // Navigator.of(context)
-                          //     .push(CustomePageRoute(child: Login()));
                           Navigator.of(context).pop();
                         },
                         style: ButtonStyle(

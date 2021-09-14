@@ -1,0 +1,50 @@
+{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "shop_id": 1,
+            "category": "Organic",
+            "name": "RAM",
+            "image_url": "http://demo.magespider.com/Grocery/public/storage/categories/E3yEvWgGCgLy1FwDtgXSUxVzK.jpg",
+            "shortdescription": "assigned route parameters just like route",
+            "status": 1,
+            "created_at": "05/08/2021",
+            "updated_at": "05/08/2021"
+        },
+        {
+            "id": 2,
+            "shop_id": 2,
+            "category": "Break Fast",
+            "name": "krishna",
+            "image_url": "http://demo.magespider.com/Grocery/public/storage/categories/wFZFE2FNmyTxZ4B2aou99xOeT.jfif",
+            "shortdescription": "assigned route parameters just like",
+            "status": 1,
+            "created_at": "05/08/2021",
+            "updated_at": "07/08/2021"
+        },
+        {
+            "id": 3,
+            "shop_id": 3,
+            "category": "Organic",
+            "name": "groceryapp",
+            "image_url": "http://demo.magespider.com/Grocery/public/storage/categories/f7t0ZN1QXrbwKKEfLUGbHAXFI.jfif",
+            "shortdescription": "you to chain more constraints onto the query and then finally retrieve",
+            "status": 1,
+            "created_at": "06/08/2021",
+            "updated_at": "06/08/2021"
+        },
+        {
+            "id": 4,
+            "shop_id": 4,
+            "category": "Prozen Foods",
+            "name": "groceryapp",
+            "image_url": "http://demo.magespider.com/Grocery/public/storage/categories/EQoVxUL19LD4NKdjCTCHdPJ9b.jpg",
+            "shortdescription": "you to chain more constraints onto the query and then finally retrieve",
+            "status": 1,
+            "created_at": "07/08/2021",
+            "updated_at": "11/08/2021"
+        }
+    ],
+    "message": "category retrieved successfully."
+}

@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "data": {
+        "name": "a",
+        "email": "a@gmail.com"
+    },
+    "message": "User login successfully.",
+    "token": "0|mgr5GDkZCnLI2JiaGp0mTHeNNSm8OWzHmQYXPyxF"
+}

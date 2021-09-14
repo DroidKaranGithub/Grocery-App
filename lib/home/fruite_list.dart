@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/models/models/test_list.dart';
 
-class VegetableWidget extends StatelessWidget {
+class FruiteWidget extends StatelessWidget {
   final List<Data> data;
-  VegetableWidget({required this.data});
-
+  FruiteWidget({required this.data});
   @override
   Widget build(BuildContext context) {
     return Container(
