@@ -147,8 +147,8 @@ class _ProductListScreenState extends State<ProductListScreen> {
                     onTap: () =>
                         Navigator.of(context).pushNamed("productlistscreen"),
                     child: Container(
-                      margin:
-                          EdgeInsets.only(top: 20.0, left: 16.0, right: 16.0),
+                      // margin:
+                      //     EdgeInsets.only(top: 20.0, left: 16.0, right: 16.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(12.0),
                         child: Image.network(
@@ -156,6 +156,16 @@ class _ProductListScreenState extends State<ProductListScreen> {
                           fit: BoxFit.fill,
                         ),
                       ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 10.0),
+                  child: SizedBox(
+                    height: 0.5,
+                    child: Container(
+                      height: 0.5,
+                      color: Colors.grey.shade400,
                     ),
                   ),
                 ),
