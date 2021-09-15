@@ -29,7 +29,7 @@ class FruiteWidget extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(12.0),
                         child: Image.network(
-                          data[index].image_url.toString(),
+                          data[index].imageUrl.toString(),
                           fit: BoxFit.cover,
                         ),
                       ),

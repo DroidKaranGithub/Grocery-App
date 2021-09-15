@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/models/models/login_response.dart';
 import 'package:grocery_app/network/apiconstant.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -17,10 +18,18 @@ class _LoginState extends State<Login> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
+  late SharedPreferences sharedPreferences;
   bool isEmaileEmpty = false;
   bool isPasswordEmpty = false;
   bool _isLoading = false;
+  LoginResponse response = LoginResponse();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   void _isValid() {
     setState(() {
@@ -44,20 +53,21 @@ class _LoginState extends State<Login> {
     Map data = <String, String>{"email": email, "password": password};
 
     print("Map data -> $data");
-
     var loginResponse = await http.post(Uri.parse(LOGIN), body: data);
 
     print("Login Response-> $loginResponse");
     print('Map_Response_Data->  ${loginResponse.statusCode}');
     Map loginData = json.decode(loginResponse.body);
 
-    LoginResponse response = LoginResponse.fromJson(loginData);
+    response = LoginResponse.fromJson(loginData);
 
     if (loginResponse.statusCode == 200) {
       if (response.success == true) {
         setState(() {
           _isLoading = false;
-          Navigator.of(context).pushReplacementNamed("homepage");
+          savePref().whenComplete(() async {
+            Navigator.of(context).pushReplacementNamed("homepage");
+          });
         });
       } else if (response.success == false) {
         setState(() {
@@ -74,13 +84,33 @@ class _LoginState extends State<Login> {
   }
 
   void _showToast(BuildContext context, LoginResponse response) {
-    _scaffoldKey.currentState!.showSnackBar(
-      new SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
         content: Text(
           response.message.toString(),
         ),
       ),
     );
+    // ScaffoldMessenger(
+    //   key: _scaffoldKey,
+    //   child: Text(
+    //     response.message.toString(),
+    //   ),
+    // );
+    // _scaffoldKey.currentState!.showSnackBar(
+    //   new SnackBar(
+    //     content: Text(
+    //       response.message.toString(),
+    //     ),
+    //   ),
+    // );
+  }
+
+  Future savePref() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.setBool(PREF_LOGIN, true);
+    sharedPreferences.setString(PREF_NAME, response.data!.name.toString());
+    sharedPreferences.setString(PREF_EMAIL, response.data!.email.toString());
   }
 
   @override

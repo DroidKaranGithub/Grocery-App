@@ -19,38 +19,38 @@ class Categories {
 
 class CategoryList {
   int? id;
-  int? shop_id;
+  int? shopId;
   String? category;
   String? name;
-  String? image_url;
+  String? imageUrl;
   String? shortdescription;
   int? status;
-  String? created_at;
-  String? updated_at;
+  String? createdAt;
+  String? updatedAt;
 
   CategoryList({
     this.id,
-    this.shop_id,
+    this.shopId,
     this.category,
     this.name,
-    this.image_url,
+    this.imageUrl,
     this.shortdescription,
     this.status,
-    this.created_at,
-    this.updated_at,
+    this.createdAt,
+    this.updatedAt,
   });
 
   factory CategoryList.fromJson(Map<String, dynamic> json) {
     return CategoryList(
       id: json['id'],
-      shop_id: json['shop_id'],
+      shopId: json['shop_id'],
       category: json['category'],
       name: json['name'],
-      image_url: json['image_url'],
+      imageUrl: json['image_url'],
       shortdescription: json['shortdescription'],
       status: json['status'],
-      created_at: json['created_at'],
-      updated_at: json['updated_at'],
+      createdAt: json['created_at'],
+      updatedAt: json['updated_at'],
     );
   }
 }

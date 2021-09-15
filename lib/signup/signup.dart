@@ -112,13 +112,20 @@ class _SignUpState extends State<SignUp> {
   }
 
   void _showToast(BuildContext context, SignUpResponseBean response) {
-    _scaffoldKey.currentState!.showSnackBar(
-      new SnackBar(
-        content: Text(
-          response.message.toString(),
-        ),
+    ScaffoldMessenger(
+      key: _scaffoldKey,
+      child: Text(
+        response.message.toString(),
       ),
     );
+    // _scaffoldKey.currentState.
+    // // _scaffoldKey.currentState!.showSnackBar(
+    // //   new SnackBar(
+    // //     content: Text(
+    // //       response.message.toString(),
+    // //     ),
+    // //   ),
+    // );
   }
 
   @override

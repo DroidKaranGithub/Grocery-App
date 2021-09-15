@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:grocery_app/home/fruite_list.dart';
 import 'package:grocery_app/home/home_top_header.dart';
 import 'package:grocery_app/home/vegetable_list.dart';
 import 'package:grocery_app/models/models/test_list.dart';
@@ -46,7 +45,7 @@ class _HomePageState extends State<HomePage> {
       _isLoading = false;
     }
 
-    print("Response -> ${testList.data![0].image_url.toString()}");
+    print("Response -> ${testList.data![0].imageUrl.toString()}");
     // print("Response -> ${data.toString()}");
   }
 
@@ -79,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                       margin: EdgeInsets.only(top: 16, right: 6),
                       child: TextButton(
                         onPressed: () {
-                          Navigator.of(context).pushNamed("productlist");
+                          Navigator.of(context).pushNamed("categoryscreen");
                         },
                         child: Text(
                           'View all',

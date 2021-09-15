@@ -18,43 +18,43 @@ class TestList {
 
 class Data {
   int? id;
-  int? shop_id;
+  int? shopId;
   String? name;
-  String? image_url;
+  String? imageUrl;
   String? shortdescription;
   String? unit;
   String? quantity;
   int? price;
   int? status;
-  String? created_at;
-  String? updated_at;
+  String? createdAt;
+  String? updatedAt;
 
   Data({
     this.id,
-    this.shop_id,
+    this.shopId,
     this.name,
-    this.image_url,
+    this.imageUrl,
     this.shortdescription,
     this.unit,
     this.quantity,
     this.price,
     this.status,
-    this.created_at,
-    this.updated_at,
+    this.createdAt,
+    this.updatedAt,
   });
 
   factory Data.fromJson(Map<String, dynamic> json) {
     return Data(
         id: json['id'],
-        shop_id: json['shop_id'],
+        shopId: json['shop_id'],
         name: json['name'],
-        image_url: json['image_url'],
+        imageUrl: json['image_url'],
         shortdescription: json['shortdescription'],
         unit: json['unit'],
         quantity: json['quantity'],
         price: json['price'],
         status: json['status'],
-        created_at: json['created_at'],
-        updated_at: json['updated_at']);
+        createdAt: json['created_at'],
+        updatedAt: json['updated_at']);
   }
 }

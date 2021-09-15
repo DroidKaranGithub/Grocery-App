@@ -1,19 +1,19 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:grocery_app/ProductList/product_list.dart';
+import 'package:grocery_app/Category/product_list.dart';
 import 'package:grocery_app/models/models/category_product_list.dart';
 import 'package:grocery_app/network/apiconstant.dart';
 import 'package:http/http.dart' as http;
 
-class ProductScreen extends StatefulWidget {
-  const ProductScreen({Key? key}) : super(key: key);
+class CategoryScreen extends StatefulWidget {
+  const CategoryScreen({Key? key}) : super(key: key);
 
   @override
-  _ProductScreenState createState() => _ProductScreenState();
+  _CategoryScreenState createState() => _CategoryScreenState();
 }
 
-class _ProductScreenState extends State<ProductScreen> {
+class _CategoryScreenState extends State<CategoryScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   Categories categories = Categories();
   List<CategoryList> categoriesData = [];
@@ -47,7 +47,7 @@ class _ProductScreenState extends State<ProductScreen> {
       _isLoading = false;
     }
 
-    print("Response -> ${categories.data![0].image_url.toString()}");
+    print("Response -> ${categories.data![0].imageUrl.toString()}");
   }
 
   @override
@@ -60,7 +60,7 @@ class _ProductScreenState extends State<ProductScreen> {
         elevation: 1.0,
         backgroundColor: Colors.grey.shade100,
         title: Text(
-          "Product List",
+          "Category Name",
           style: TextStyle(color: Colors.black, fontSize: 16.0),
         ),
         actions: [

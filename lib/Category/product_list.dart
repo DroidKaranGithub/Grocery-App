@@ -26,14 +26,18 @@ class ProductList extends StatelessWidget {
                 children: [
                   Expanded(
                     flex: 4,
-                    child: Container(
-                      margin:
-                          EdgeInsets.only(top: 20.0, left: 16.0, right: 16.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12.0),
-                        child: Image.network(
-                          categories[index].image_url.toString(),
-                          fit: BoxFit.fill,
+                    child: GestureDetector(
+                      onTap: () =>
+                          Navigator.of(context).pushNamed("productlistscreen"),
+                      child: Container(
+                        margin:
+                            EdgeInsets.only(top: 20.0, left: 16.0, right: 16.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(12.0),
+                          child: Image.network(
+                            categories[index].imageUrl.toString(),
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
                     ),

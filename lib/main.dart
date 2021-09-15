@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/ProductList/product_list_screen.dart';
+import 'package:grocery_app/Category/category_list_screen.dart';
+import 'package:grocery_app/ProductListScreen/product_list_screen.dart';
 import 'package:grocery_app/home/home_screen.dart';
+import 'package:grocery_app/home/splash_screen.dart';
 import 'package:grocery_app/login/login.dart';
 import 'package:grocery_app/signup/signup.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,12 +17,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
       ),
       routes: {
+        "splashscreen": (context) => SplashScreen(),
         'login': (context) => Login(),
         'signup': (context) => SignUp(),
         'homepage': (context) => HomePage(),
-        "productlist": (context) => ProductScreen()
+        "categoryscreen": (context) => CategoryScreen(),
+        "productlistscreen": (context) => ProductListScreen()
       },
-      home: HomePage(),
+      home: SplashScreen(),
     );
   }
 }
